@@ -1,0 +1,323 @@
+:root {
+    --primary-bg: #0f0c29;
+    --secondary-bg: #302b63;
+    --accent-bg: #24243e;
+    --gold: #FFD700;
+    --gold-dark: #b8860b;
+    --purple-light: #9d50bb;
+    --magenta: #ff007f;
+    --text-light: #ffffff;
+    --text-dim: #cccccc;
+    --card-bg: rgba(255, 255, 255, 0.05);
+    --border-color: rgba(255, 215, 0, 0.3);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, var(--primary-bg), var(--secondary-bg), var(--accent-bg));
+    background-attachment: fixed;
+    color: var(--text-light);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.container {
+    max-width: 600px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
+    gap: 15px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 900;
+    color: var(--primary-bg);
+    background: var(--gold);
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+h1 {
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    color: var(--text-dim);
+}
+
+.hero {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.glow-text {
+    font-size: 3.5rem;
+    font-weight: 900;
+    background: linear-gradient(to right, #FFF, var(--gold), #FFF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+    margin-bottom: 0.5rem;
+    line-height: 1.1;
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    color: var(--text-dim);
+}
+
+.form-container, .success-container {
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+    font-size: 0.95rem;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+select {
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.2);
+    background: rgba(0,0,0,0.2);
+    color: var(--text-light);
+    font-size: 1rem;
+    font-family: inherit;
+    transition: all 0.3s ease;
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: var(--gold);
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.2);
+}
+
+small {
+    display: block;
+    margin-top: 0.3rem;
+    color: var(--text-dim);
+    font-size: 0.8rem;
+}
+
+/* Custom Toggle Switch */
+.toggle-container {
+    background: rgba(0,0,0,0.3);
+    padding: 1rem;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.toggle-label {
+    font-weight: 700;
+}
+
+.toggle-switch input {
+    display: none;
+}
+
+.toggle-switch label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    background: rgba(255,255,255,0.1);
+    border-radius: 30px;
+    padding: 5px 10px;
+    position: relative;
+    width: 100px;
+    height: 40px;
+    margin: 0;
+}
+
+.toggle-slider {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 32px;
+    height: 32px;
+    background: var(--text-dim);
+    border-radius: 50%;
+    transition: 0.3s;
+    z-index: 2;
+}
+
+.toggle-text {
+    flex: 1;
+    text-align: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    z-index: 1;
+}
+
+.toggle-text.yes { color: rgba(255,255,255,0.3); }
+.toggle-text.no { color: #fff; }
+
+input:checked + label .toggle-slider {
+    transform: translateX(60px);
+    background: var(--gold);
+    box-shadow: 0 0 10px var(--gold);
+}
+
+input:checked + label .toggle-text.yes { color: #fff; }
+input:checked + label .toggle-text.no { color: rgba(255,255,255,0.3); }
+
+/* Business Fields */
+.hidden {
+    display: none !important;
+}
+
+.bonus-alert {
+    background: rgba(255, 215, 0, 0.1);
+    border-left: 4px solid var(--gold);
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    border-radius: 0 8px 8px 0;
+    font-size: 0.9rem;
+}
+
+.bonus-alert strong {
+    color: var(--gold);
+}
+
+/* Submit Button */
+.submit-btn {
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(135deg, var(--magenta), var(--purple-light));
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    font-weight: 900;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 10px 20px rgba(255, 0, 127, 0.3);
+    margin-top: 1rem;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 25px rgba(255, 0, 127, 0.5);
+    background: linear-gradient(135deg, #ff1a8c, #a85bc9);
+}
+
+.submit-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.disclaimer {
+    text-align: center;
+    font-size: 0.75rem;
+    color: var(--text-dim);
+    margin-top: 1.5rem;
+    line-height: 1.4;
+}
+
+/* Success Screen */
+.success-container {
+    text-align: center;
+}
+
+.trophy-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+
+.ticket-number {
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--primary-bg);
+    background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+    padding: 15px 30px;
+    border-radius: 12px;
+    display: inline-block;
+    margin: 1.5rem 0;
+    box-shadow: 0 10px 20px rgba(255, 215, 0, 0.2);
+    letter-spacing: 2px;
+}
+
+.success-note {
+    color: var(--text-dim);
+    margin-bottom: 2rem;
+}
+
+.sponsor-shoutout {
+    border-top: 1px solid var(--border-color);
+    padding-top: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.sponsor-shoutout h3 {
+    color: var(--gold);
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.sponsor-logos {
+    display: flex;
+    gap: 15px;
+    margin-top: 1rem;
+}
+
+.sponsor-box {
+    flex: 1;
+    height: 80px;
+    background: rgba(255,255,255,0.05);
+    border: 1px dashed rgba(255,255,255,0.2);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    color: var(--text-dim);
+}
+
+footer {
+    text-align: center;
+    margin-top: 3rem;
+    color: var(--text-dim);
+    font-size: 0.8rem;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .glow-text { font-size: 2.5rem; }
+    .form-container { padding: 1.5rem; }
+    .ticket-number { font-size: 2rem; padding: 10px 20px; }
+}

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jayboi Community Giveaway</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <!-- Supabase JS Client -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <!-- Canvas Confetti for success screen -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">JB</div>
+            <h1>JAYBOI ENTERPRISES</h1>
+        </header>
+
+        <main id="main-content">
+            <div class="hero">
+                <h2 class="glow-text">WIN $500 CASH</h2>
+                <p class="subtitle">Complete the form below to get your official raffle ticket.</p>
+            </div>
+
+            <div class="form-container" id="form-container">
+                <form id="raffle-form">
+                    
+                    <div class="toggle-container">
+                        <p class="toggle-label">Are you a Business Owner?</p>
+                        <div class="toggle-switch">
+                            <input type="checkbox" id="business-toggle" name="is_business_owner">
+                            <label for="business-toggle">
+                                <span class="toggle-text no">No</span>
+                                <span class="toggle-slider"></span>
+                                <span class="toggle-text yes">Yes</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div id="business-fields" class="hidden">
+                        <div class="bonus-alert">
+                            <strong>Bonus Unlocked!</strong> As a business owner, you're also entered to win a FREE service package ($500 value).
+                        </div>
+                        <div class="form-group">
+                            <label for="business-type">What type of business do you own?</label>
+                            <input type="text" id="business-type" name="business_type" placeholder="e.g., Landscaping, Retail, Consulting">
+                        </div>
+                        <div class="form-group">
+                            <label for="service-interest">What service would help your business most?</label>
+                            <select id="service-interest" name="service_interest">
+                                <option value="">Select a service (Optional)</option>
+                                <option value="Web Design">Custom Web Design</option>
+                                <option value="Google Business Profile">Google Business Profile Management</option>
+                                <option value="Social Media Content">Social Media Content Creation</option>
+                                <option value="Lead Generation">Lead Generation & SEO</option>
+                                <option value="Trucking DOT Compliance">Trucking: DOT Compliance Support</option>
+                                <option value="Trucking ELD">Trucking: ELD Monthly Audits</option>
+                                <option value="Factoring">Freight Factoring Referrals</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div id="community-fields">
+                        <div class="form-group">
+                            <label for="newsletter-interest">What content would you like to see in our VIP Newsletter?</label>
+                            <select id="newsletter-interest" name="newsletter_interest">
+                                <option value="">Select an interest (Optional)</option>
+                                <option value="Local Events">Local Events & Happenings</option>
+                                <option value="Exclusive Discounts">Exclusive Local Discounts</option>
+                                <option value="Business Spotlights">Small Business Spotlights</option>
+                                <option value="Job Postings">Job Postings & Opportunities</option>
+                                <option value="Other">Other / Suggestion</option>
+                            </select>
+                            <small>Help us tailor the VIP subscription to your interests!</small>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="full-name">Full Name *</label>
+                        <input type="text" id="full-name" name="full_name" required placeholder="John Doe">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required placeholder="john@example.com">
+                        <small>We'll use this to notify you if you win.</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone Number (Optional)</label>
+                        <input type="tel" id="phone" name="phone" placeholder="(555) 555-5555">
+                        <small>For text/call notification if you win.</small>
+                    </div>
+
+                    <button type="submit" class="submit-btn" id="submit-btn">
+                        <span>GET MY RAFFLE TICKET</span>
+                    </button>
+                    <p class="disclaimer">No purchase necessary to enter or win. By entering, you agree to receive our free community newsletter featuring local deals and updates.</p>
+                </form>
+            </div>
+
+            <!-- Success Screen (Hidden initially) -->
+            <div id="success-screen" class="hidden success-container">
+                <div class="trophy-icon">🏆</div>
+                <h2>You're Entered!</h2>
+                <p>Your official raffle ticket number is:</p>
+                <div class="ticket-number" id="display-ticket-number">JB-0000</div>
+                <p class="success-note">Save this number! We've also emailed it to you.<br>The winner will be announced in our upcoming newsletter.</p>
+                
+                <div class="sponsor-shoutout">
+                    <h3>Support Our Sponsors</h3>
+                    <p>This giveaway is made possible by our local business partners.</p>
+                    <div class="sponsor-logos">
+                        <div class="sponsor-box">Sponsor 1 Space</div>
+                        <div class="sponsor-box">Sponsor 2 Space</div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+        
+        <footer>
+            <p>&copy; 2026 Jayboi Enterprises. All rights reserved.</p>
+        </footer>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
